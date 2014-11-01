@@ -2,26 +2,33 @@ part of dart_flex_unscrambler;
 
 class MainApplication extends SkinnableComponent {
   
+  // local props
   String _currentWord = '';
   int _currentBlanks = 0;
   Dictionary dictionary;
   
+  // named UI components in the skin
   HGroup wordContainer;
   TileGroup letterGroup;
   
+  // bindable resultset
   @observable ObservableList<WordBinary> matchingWords = new ObservableList<WordBinary>();
   
+  // path to the view skin file
   @Skin('dart_flex_unscrambler|lib/src/xml/application.xml')
   MainApplication() : super() {
     loadWordList();
     
+    // set skin's initial state
     currentSkinStates = const <SkinState>[const SkinState('loadingState')];
   }
   
+  // called whenever a named skin UI part is created
   @override
   void partAdded(IUIWrapper part) {
   }
   
+  // adds a letter to the scrambled word
   void addLetter(String letter) {
     _currentWord += letter;
     
@@ -30,6 +37,7 @@ class MainApplication extends SkinnableComponent {
     findMatches();
   }
   
+  // adds a blank letter to the scrambled word
   void addBlank() {
     _currentBlanks++;
     
@@ -38,6 +46,7 @@ class MainApplication extends SkinnableComponent {
     findMatches();
   }
   
+  // represent the letters of the scrambled word by buttons
   void addWordButton(String C) => wordContainer.addComponent(
     new Button()
       ..cssClasses = ['word']
@@ -59,6 +68,7 @@ class MainApplication extends SkinnableComponent {
       )
   );
   
+  // run the algo to find matches
   void findMatches() {
     final bool hasWord = (_currentWord.isNotEmpty || _currentBlanks > 0);
     
@@ -73,6 +83,7 @@ class MainApplication extends SkinnableComponent {
     }
   }
   
+  // loads the full word list
   void loadWordList() {
     HttpRequest.request('sowpods.txt', method: 'GET', responseType: 'text').then(
       (HttpRequest R) {
