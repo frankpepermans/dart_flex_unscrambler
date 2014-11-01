@@ -2,8 +2,7 @@ name: dart_flex_unscrambler
 description: A sample web application
 dependencies:
   browser: any
-  dart_flex:
-    path: ../dart_flex
+  dart_flex: any
   observe: any
   unscrambler: any
 transformers:
