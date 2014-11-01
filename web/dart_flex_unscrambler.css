@@ -1,0 +1,123 @@
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ddd;
+  overflow: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+
+._ListRenderer {
+  background-color: #fff;
+}
+
+._Button {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  background-color: #fff;
+  color: #646464;
+}
+
+._Button.word {
+  background-color: #0f9d58;
+  color: #fff;
+}
+
+._Button.pick {
+  background-color: #eee;
+}
+
+.slide-in {
+  -webkit-transition: top .5s ease-out;
+     -moz-transition: top .5s ease-out;
+       -o-transition: top .5s ease-out;
+          transition: top .5s ease-out;
+}
+
+#dart_flex_container {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ItemRenderer-selected {
+  color: #fff;
+  background: -webkit-linear-gradient(top, #80c2e0, #85c9e6);
+  background: -moz-linear-gradient(top, #80c2e0, #85c9e6);
+  background: -ms-linear-gradient(top, #80c2e0, #85c9e6);
+  background: -o-linear-gradient(top, #80c2e0, #85c9e6);
+}
+
+.ItemRenderer-selected:hover {
+  background-color: #3da8da;
+}
+
+.slide-from-top-A {
+  -webkit-transition: top .25s ease-out;
+     -moz-transition: top .25s ease-out;
+       -o-transition: top .25s ease-out;
+          transition: top .25s ease-out;
+  -webkit-transition-delay: 1s;
+     -moz-transition-delay: 1s;
+       -o-transition-delay: 1s;
+          transition-delay: 1s;
+}
+
+.slide-from-top-B {
+  -webkit-transition: top .25s ease-out;
+     -moz-transition: top .25s ease-out;
+       -o-transition: top .25s ease-out;
+          transition: top .25s ease-out;
+  -webkit-transition-delay: .5s;
+     -moz-transition-delay: .5s;
+       -o-transition-delay: .5s;
+          transition-delay: .5s;
+}
+
+.slide-from-top-C {
+  -webkit-transition: top .25s ease-out;
+     -moz-transition: top .25s ease-out;
+       -o-transition: top .25s ease-out;
+          transition: top .25s ease-out;
+}
+
+.player-one {
+  background-color: #f90;
+}
+
+.player-two {
+  background-color: #39f;
+}
+
+.rounded-images > div > div {
+  border-radius: 50%;
+  border: 3px solid #ddd;
+          box-sizing:border-box;
+     -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -webkit-transition: border .25s ease-out;
+     -moz-transition: border .25s ease-out;
+       -o-transition: border .25s ease-out;
+          transition: border .25s ease-out;
+}
+
+.rounded-images > div > div:hover {
+  border: 3px solid #fff;
+}

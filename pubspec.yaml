@@ -1,0 +1,17 @@
+name: dart_flex_unscrambler
+description: A sample web application
+dependencies:
+  browser: any
+  dart_flex:
+    path: ../dart_flex
+  observe: any
+  unscrambler: any
+transformers:
+- dart_flex/src/transformers/uiml_transformer
+- observe/transformer
+- $dart2js:
+    commandLineOptions:
+    - --trust-type-annotations
+    - --suppress-warnings
+    minify: true
+    checked: false

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<fx:Skin xmlns:fx="library://dart_flex">
+  
+  <fx:declarations>
+  </fx:declarations>
+  
+  <fx:states>
+    <fx:SkinState id="loadingState" />
+    <fx:SkinState id="emptyWordState" />
+    <fx:SkinState id="resultState" />
+  </fx:states>
+  
+  <fx:VGroup
+    percentWidth="100.0"
+    percentHeight="100.0">
+    
+    <fx:RichText
+      includeIn="[loadingState]"
+      percentWidth="100.0"
+      height="34"
+      text="'Loading word list...'"/>
+      
+    <fx:RichText
+      includeIn="[emptyWordState]"
+      percentWidth="100.0"
+      percentHeight="100.0"
+      richText="'Use the keyboard below to add letters<br>use the add blank key to add a wildcard match.<br><br>To remove a letter from your scrambled word, simply click it.<br><br>For example: choose D - A - B which will result in finding BAD.'"/>
+    
+    <fx:HGroup 
+      includeIn="[resultState]"
+      id="wordContainer"
+      percentWidth="100.0"
+      height="50" />
+      
+    <fx:ListRenderer
+      includeIn="[resultState]"
+      percentWidth="100.0"
+      percentHeight="100.0"
+      labelHandler="(WordBinary W) => W.word"
+      rowHeight="34"
+      rowSpacing="0"
+      itemRendererFactory="new ItemRendererFactory(constructorMethod: LabelItemRenderer.construct)"
+      dataProvider="{matchingWords}" />
+      
+    <fx:TileGroup
+      includeIn="[emptyWordState, resultState]"
+      id="letterGroup"
+      cssClasses="['slide-in']"
+      percentWidth="100.0"
+      height="1"
+      on-layout-height-changed="(_) => letterGroup.height = letterGroup.layoutHeight">
+    
+      <fx:Repeater
+        from="0"
+        to="25">
+        
+        <fx:Button 
+          cssClasses="['pick']"
+          width="34"
+          height="34"
+          label="{new String.fromCharCode(repeater.currentValue + 65)}"
+          on-button-click="(FrameworkEvent E) => addLetter(E.currentTarget.label)"/>
+          
+      </fx:Repeater>
+    
+    </fx:TileGroup>
+    
+    <fx:Button 
+      includeIn="[emptyWordState, resultState]"
+      cssClasses="['pick', 'slide-in']"
+      width="80"
+      height="34"
+      label="'add blank'"
+      on-button-click="(FrameworkEvent E) => addBlank()"/>
+      
+  </fx:VGroup>
+  
+</fx:Skin>
